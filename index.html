@@ -67,6 +67,7 @@
       70% { box-shadow: 0 0 0 10px rgba(255,84,54,0); }
       100% { box-shadow: 0 0 0 0 rgba(255,84,54,0); }
     }
+    .strip span { white-space: nowrap; }
     .strip span + span::before { content: "·"; margin-right: 16px; color: var(--ink-mute); }
 
     /* HERO */
@@ -199,6 +200,28 @@
     .line.l-1 .accent { background: var(--tomato); }
     .line.l-2 .accent { background: linear-gradient(90deg, var(--tomato), var(--cilantro-deep)); }
     .line.l-3 .accent { background: var(--mustard); }
+    .line .illus {
+      display: flex; justify-content: center; align-items: flex-end;
+      height: 92px; margin: 8px 0 14px;
+      background:
+        radial-gradient(ellipse at 50% 95%, rgba(0,0,0,0.35) 0, transparent 60%),
+        radial-gradient(ellipse at 50% 30%, rgba(255,84,54,0.05) 0, transparent 70%);
+    }
+    .line .illus svg { height: 88px; width: auto; display: block; }
+    .line .illus svg .bun { fill: #d9a05a; }
+    .line .illus svg .bun-bot { fill: #b97a3a; }
+    .line .illus svg .seed { fill: #f3e6c8; }
+    .line .illus svg .lettuce { fill: #7a9628; }
+    .line .illus svg .patty { fill: #4a2210; }
+    .line .illus svg .cheese { fill: #f4b942; }
+    .line .illus svg .salsa { fill: #ff5436; }
+    .line .illus svg .salsa-drip { fill: #c8341e; }
+    .line .illus svg .jar-glass { fill: rgba(245,231,196,0.08); stroke: rgba(245,231,196,0.45); stroke-width: 1.4; }
+    .line .illus svg .jar-lid { fill: #8a755a; }
+    .line .illus svg .jar-lid-rim { fill: #5a4a3a; }
+    .line .illus svg .jar-fill { fill: #c8341e; }
+    .line .illus svg .jar-fill-top { fill: #ff5436; }
+    .line .illus svg .label { fill: #f5e7c4; }
 
     /* Menu */
     .menu {
@@ -236,6 +259,7 @@
       padding: 2px 7px; border-radius: 3px;
       background: var(--tomato-glow); color: var(--tomato);
       vertical-align: middle;
+      white-space: nowrap;
     }
     .menu .badge.jar { background: rgba(244,185,66,0.18); color: var(--mustard); }
 
@@ -254,7 +278,7 @@
       font-family: 'JetBrains Mono', monospace; font-size: 11px;
       color: var(--ink-soft);
     }
-    .map-legend .key { display: inline-flex; align-items: center; gap: 6px; }
+    .map-legend .key { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
     .map-legend .key::before {
       content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%;
     }
@@ -290,6 +314,7 @@
       display: inline-block;
       font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em;
       text-transform: uppercase; padding: 3px 8px; border-radius: 3px;
+      white-space: nowrap;
     }
     .comps .tag.t-front { background: var(--tomato-glow); color: var(--tomato); }
     .comps .tag.t-watch { background: rgba(244,185,66,0.18); color: var(--mustard); }
@@ -319,10 +344,10 @@
       letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 18px;
     }
     .stack {
-      display: flex; gap: 10px; align-items: flex-end;
-      height: 240px; padding: 8px 0 0;
+      display: flex; gap: 10px; align-items: stretch;
+      height: 260px; padding: 8px 0 0;
     }
-    .stack .col { flex: 1; display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+    .stack .col { flex: 1; height: 100%; display: flex; flex-direction: column; align-items: stretch; gap: 0; min-width: 0; }
     .stack .col .yr {
       font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-mute);
       text-align: center; margin-top: 8px;
@@ -346,7 +371,7 @@
       margin-top: 14px;
       font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--ink-soft);
     }
-    .biz-key span { display: inline-flex; align-items: center; gap: 6px; }
+    .biz-key span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
     .biz-key span::before {
       content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px;
     }
@@ -489,6 +514,18 @@
 
         <div class="line l-1">
           <div class="accent"></div>
+          <div class="illus" aria-hidden="true">
+            <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+              <path class="bun" d="M 10,40 Q 65,2 120,40 Q 120,46 110,47 L 20,47 Q 10,46 10,40 Z"/>
+              <ellipse class="seed" cx="42" cy="25" rx="2.2" ry="1.1" transform="rotate(-18 42 25)"/>
+              <ellipse class="seed" cx="60" cy="18" rx="2.2" ry="1.1" transform="rotate(8 60 18)"/>
+              <ellipse class="seed" cx="78" cy="22" rx="2.2" ry="1.1" transform="rotate(-6 78 22)"/>
+              <ellipse class="seed" cx="95" cy="27" rx="2.2" ry="1.1" transform="rotate(14 95 27)"/>
+              <path class="lettuce" d="M 12,49 Q 26,55 40,49 Q 54,55 68,49 Q 82,55 96,49 Q 110,55 118,50 L 118,54 Q 110,59 96,54 Q 82,60 68,54 Q 54,60 40,54 Q 26,60 12,54 Z"/>
+              <rect class="patty" x="14" y="56" width="102" height="11" rx="2.5"/>
+              <path class="bun-bot" d="M 14,67 L 116,67 Q 126,67 120,76 Q 112,86 65,87 Q 18,86 10,76 Q 4,67 14,67 Z"/>
+            </svg>
+          </div>
           <span class="n">01 · the burger</span>
           <h3>Smashed double, no salsa.</h3>
           <p class="desc">For purists, kids, and the salsa-curious working their way up. The base of the whole thing.</p>
@@ -506,6 +543,24 @@
 
         <div class="line l-2">
           <div class="accent"></div>
+          <div class="illus" aria-hidden="true">
+            <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+              <path class="bun" d="M 10,40 Q 65,2 120,40 Q 120,46 110,47 L 20,47 Q 10,46 10,40 Z"/>
+              <ellipse class="seed" cx="42" cy="25" rx="2.2" ry="1.1" transform="rotate(-18 42 25)"/>
+              <ellipse class="seed" cx="60" cy="18" rx="2.2" ry="1.1" transform="rotate(8 60 18)"/>
+              <ellipse class="seed" cx="78" cy="22" rx="2.2" ry="1.1" transform="rotate(-6 78 22)"/>
+              <ellipse class="seed" cx="95" cy="27" rx="2.2" ry="1.1" transform="rotate(14 95 27)"/>
+              <!-- salsa drip layer (top, peeking from under the bun) -->
+              <path class="salsa" d="M 12,46 Q 22,53 32,46 Q 44,55 56,46 Q 68,55 80,46 Q 92,55 104,46 Q 114,53 120,47 L 120,52 Q 114,58 104,52 Q 92,62 80,52 Q 68,62 56,52 Q 44,62 32,52 Q 22,58 12,52 Z"/>
+              <!-- drips down the sides -->
+              <path class="salsa-drip" d="M 18,52 Q 17,60 19,68 Q 21,64 22,58 Z"/>
+              <path class="salsa-drip" d="M 110,52 Q 113,62 111,72 Q 109,66 108,58 Z"/>
+              <path class="salsa-drip" d="M 48,53 Q 47,58 49,62 Q 51,59 50,55 Z"/>
+              <path class="salsa-drip" d="M 88,53 Q 89,60 87,64 Q 85,60 86,55 Z"/>
+              <rect class="patty" x="14" y="58" width="102" height="11" rx="2.5"/>
+              <path class="bun-bot" d="M 14,69 L 116,69 Q 126,69 120,78 Q 112,88 65,89 Q 18,88 10,78 Q 4,69 14,69 Z"/>
+            </svg>
+          </div>
           <span class="n">02 · the headline</span>
           <h3>Smashed double, salsa built in.</h3>
           <p class="desc">The reason bobos exists. Salsa roja worked into the bun and the bite, not served alongside. Adds two dollars, ten cents to your day.</p>
@@ -523,6 +578,24 @@
 
         <div class="line l-3">
           <div class="accent"></div>
+          <div class="illus" aria-hidden="true">
+            <svg viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+              <!-- lid -->
+              <rect class="jar-lid" x="46" y="4" width="38" height="9" rx="1.5"/>
+              <rect class="jar-lid-rim" x="46" y="12" width="38" height="3"/>
+              <!-- jar body (glass outline) -->
+              <path class="jar-glass" d="M 44,15 L 44,82 Q 44,87 48,87 L 82,87 Q 86,87 86,82 L 86,15 Z"/>
+              <!-- salsa fill inside -->
+              <path class="jar-fill" d="M 45.4,24 L 84.6,24 L 84.6,81 Q 84.6,85.6 82.4,85.6 L 47.6,85.6 Q 45.4,85.6 45.4,81 Z"/>
+              <ellipse class="jar-fill-top" cx="65" cy="24" rx="19.6" ry="3"/>
+              <!-- label -->
+              <rect class="label" x="49" y="42" width="32" height="26" rx="1"/>
+              <text x="65" y="53" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="7" font-style="italic" font-weight="800" fill="#1a0e08">bobos</text>
+              <line x1="53" y1="57" x2="77" y2="57" stroke="#c8341e" stroke-width="0.6"/>
+              <text x="65" y="63" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="3.6" fill="#5a4a3a" letter-spacing="0.2">SALSA ROJA</text>
+              <text x="65" y="67" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="2.6" fill="#8a755a">16oz · LA</text>
+            </svg>
+          </div>
           <span class="n">03 · jar at the counter</span>
           <h3>16oz of the salsa, to go.</h3>
           <p class="desc">The CPG bet. Buy it on the way out, put it on your eggs Saturday morning. Higher margin, lower frequency — but it's how a burger joint becomes a brand.</p>
