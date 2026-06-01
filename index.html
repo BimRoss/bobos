@@ -3,367 +3,858 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>bobos — a burger joint that takes salsa seriously</title>
-  <meta name="description" content="bobos is a burger shop coming to Los Angeles. The salsa goes on the burger. It's a thinking-out-loud kind of lander while we figure out where to plant the flag." />
+  <title>bobos — burgers + salsa, LA, soon</title>
+  <meta name="description" content="bobos is a burger joint coming to Los Angeles. We sell burgers, burgers with our salsa on them, and jars of the salsa at the front of the counter. This page is the napkin." />
   <meta property="og:title" content="bobos — burgers + salsa, LA, soon" />
-  <meta property="og:description" content="A burger joint coming to LA. The salsa goes on the burger. This page is the napkin." />
+  <meta property="og:description" content="A burger joint coming to LA. We sell burgers, burgers with salsa, and jars of the salsa. This page is the napkin." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,700;1,9..144,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #fdf6ec;
-      --ink: #1a120b;
-      --ink-soft: #4a3a2c;
-      --tomato: #c8341e;
-      --tomato-deep: #9b2614;
-      --char: #2a1a10;
-      --lime: #6a8e1c;
-      --paper: #f6ecd9;
-      --line: #d9c8a9;
-      --tape: rgba(230, 200, 90, 0.55);
+      --bg: #1a0e08;
+      --bg-soft: #241510;
+      --bg-warm: #2d1a13;
+      --ink: #f5e7c4;
+      --ink-soft: #c9b690;
+      --ink-mute: #8a755a;
+      --tomato: #ff5436;
+      --tomato-deep: #c8341e;
+      --tomato-glow: rgba(255,84,54,0.18);
+      --cilantro: #c4d96b;
+      --cilantro-deep: #7a9628;
+      --mustard: #f4b942;
+      --char: #0e0806;
+      --line: rgba(245,231,196,0.12);
+      --line-strong: rgba(245,231,196,0.22);
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
     body {
       background: var(--bg);
       color: var(--ink);
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 17px;
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-size: 16.5px;
       line-height: 1.55;
       -webkit-font-smoothing: antialiased;
       background-image:
-        radial-gradient(circle at 12% 8%, rgba(200,52,30,0.06) 0, transparent 40%),
-        radial-gradient(circle at 88% 60%, rgba(106,142,28,0.07) 0, transparent 45%);
+        radial-gradient(ellipse at 8% 0%, rgba(255,84,54,0.10) 0, transparent 45%),
+        radial-gradient(ellipse at 92% 30%, rgba(244,185,66,0.06) 0, transparent 40%),
+        radial-gradient(ellipse at 50% 100%, rgba(196,217,107,0.05) 0, transparent 50%);
     }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 32px 24px 96px; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 28px 22px 96px; }
 
-    /* Top status strip — sets the "evolving" tone */
+    /* status strip */
     .strip {
-      display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center;
+      display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center;
       font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 12.5px;
+      font-size: 12px;
       color: var(--ink-soft);
-      border: 1px dashed var(--line);
-      border-radius: 8px;
-      padding: 10px 14px;
-      background: rgba(255,255,255,0.4);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 18px;
+      background: rgba(255,255,255,0.025);
+      backdrop-filter: blur(4px);
     }
     .strip .dot {
       display: inline-block; width: 8px; height: 8px; border-radius: 50%;
       background: var(--tomato); margin-right: 8px;
-      box-shadow: 0 0 0 0 rgba(200,52,30,0.5);
+      box-shadow: 0 0 0 0 rgba(255,84,54,0.5);
       animation: pulse 2.2s infinite;
     }
     @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(200,52,30,0.45); }
-      70% { box-shadow: 0 0 0 8px rgba(200,52,30,0); }
-      100% { box-shadow: 0 0 0 0 rgba(200,52,30,0); }
+      0% { box-shadow: 0 0 0 0 rgba(255,84,54,0.45); }
+      70% { box-shadow: 0 0 0 10px rgba(255,84,54,0); }
+      100% { box-shadow: 0 0 0 0 rgba(255,84,54,0); }
     }
-    .strip span + span::before { content: "·"; margin-right: 18px; color: var(--line); }
+    .strip span + span::before { content: "·"; margin-right: 16px; color: var(--ink-mute); }
 
-    /* Hero */
-    header.hero { padding: 56px 0 24px; }
+    /* HERO */
+    header.hero { padding: 64px 0 40px; position: relative; }
     .kicker {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--tomato-deep);
-      margin-bottom: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--mustard);
+      margin-bottom: 20px;
     }
     h1 {
       font-family: 'Fraunces', Georgia, serif;
-      font-weight: 800;
-      font-size: clamp(48px, 9vw, 96px);
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-      margin: 0 0 22px;
+      font-weight: 900;
+      font-style: italic;
+      font-size: clamp(54px, 10vw, 116px);
+      line-height: 0.92;
+      letter-spacing: -0.025em;
+      margin: 0 0 24px;
+      color: var(--ink);
     }
     h1 .salsa {
       color: var(--tomato);
-      font-style: italic;
-      font-weight: 600;
       position: relative;
+      display: inline-block;
     }
-    h1 .salsa::after {
-      content: ""; position: absolute; left: -2%; right: -2%; bottom: 6px; height: 14px;
-      background: var(--tomato);
-      opacity: 0.16; border-radius: 12px; transform: rotate(-1.2deg);
+    h1 .salsa::before {
+      content: ""; position: absolute; left: -4%; right: -4%; top: 18%; bottom: 14%;
+      background: var(--tomato-glow);
+      border-radius: 999px;
+      transform: rotate(-1.5deg) skewX(-2deg);
       z-index: -1;
+      filter: blur(2px);
+    }
+    h1 .amp {
+      font-family: 'Fraunces', serif; font-weight: 500; font-style: italic;
+      color: var(--mustard); padding: 0 0.05em;
     }
     .lede {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(20px, 2.4vw, 24px);
-      line-height: 1.45;
+      font-weight: 500;
+      font-size: clamp(19px, 2.2vw, 23px);
+      line-height: 1.5;
       color: var(--ink-soft);
-      max-width: 620px;
+      max-width: 640px;
       margin: 0 0 28px;
     }
+    .lede em { color: var(--cilantro); font-style: italic; }
+    .lede strong { color: var(--ink); font-weight: 500; }
 
-    /* Section */
-    section { padding: 48px 0; border-top: 1px solid var(--line); }
-    section:first-of-type { border-top: 0; }
+    /* Section scaffold */
+    section { padding: 56px 0; border-top: 1px solid var(--line); }
     h2 {
-      font-family: 'Fraunces', Georgia, serif;
-      font-weight: 700;
-      font-size: clamp(28px, 4vw, 38px);
-      line-height: 1.1;
-      letter-spacing: -0.015em;
-      margin: 0 0 8px;
+      font-family: 'Fraunces', serif;
+      font-weight: 900;
+      font-style: italic;
+      font-size: clamp(30px, 4.4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 10px;
+      color: var(--ink);
     }
     .sec-kicker {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--tomato);
+      margin-bottom: 14px;
+      display: inline-flex; align-items: center; gap: 8px;
     }
-    p { margin: 0 0 16px; }
-    em.em { font-style: italic; color: var(--char); }
+    .sec-kicker::before {
+      content: ""; width: 18px; height: 1.5px; background: var(--tomato);
+    }
+    p { margin: 0 0 16px; color: var(--ink-soft); }
+    p strong { color: var(--ink); font-weight: 600; }
+    a.inline { color: var(--mustard); text-decoration: none; border-bottom: 1px solid currentColor; }
+    a.inline:hover { color: var(--tomato); }
 
-    /* The idea — three "things we believe" */
-    .beliefs { display: grid; gap: 18px; margin-top: 22px; }
-    @media (min-width: 720px) { .beliefs { grid-template-columns: 1fr 1fr 1fr; } }
-    .belief {
-      background: var(--paper);
+    /* The three product lines */
+    .lines { display: grid; gap: 18px; margin-top: 24px; }
+    @media (min-width: 760px) { .lines { grid-template-columns: 1fr 1fr 1fr; } }
+    .line {
+      background: var(--bg-soft);
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 20px;
+      border-radius: 16px;
+      padding: 22px 22px 18px;
+      position: relative;
+      overflow: hidden;
     }
-    .belief h3 {
-      font-family: 'Fraunces', serif; font-weight: 700; font-size: 19px;
-      margin: 0 0 8px; line-height: 1.2;
+    .line .n {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px; letter-spacing: 0.15em;
+      color: var(--ink-mute); text-transform: uppercase;
+      display: block; margin-bottom: 12px;
     }
-    .belief p { font-size: 15px; color: var(--ink-soft); margin: 0; }
-    .belief .n {
-      font-family: 'JetBrains Mono', monospace; font-size: 11px;
-      color: var(--tomato-deep); letter-spacing: 0.1em;
-      display: block; margin-bottom: 6px;
+    .line h3 {
+      font-family: 'Fraunces', serif; font-weight: 800; font-style: italic;
+      font-size: 24px; line-height: 1.1; margin: 0 0 8px;
+      color: var(--ink);
     }
+    .line .desc { font-size: 14.5px; color: var(--ink-soft); margin: 0 0 16px; }
+    .line .ue {
+      display: grid; grid-template-columns: auto 1fr; gap: 4px 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px; color: var(--ink-soft);
+      padding-top: 12px; border-top: 1px dashed var(--line);
+    }
+    .line .ue .lbl { color: var(--ink-mute); }
+    .line .ue .val { color: var(--ink); text-align: right; }
+    .line .ue .val.pos { color: var(--cilantro); }
+    .line .bar {
+      margin-top: 12px;
+      display: flex; height: 10px; border-radius: 4px; overflow: hidden;
+      background: rgba(255,255,255,0.04);
+    }
+    .line .bar .seg { height: 100%; }
+    .line .bar .cogs { background: var(--ink-mute); }
+    .line .bar .marg { background: var(--cilantro-deep); }
+    .line .bar-key {
+      display: flex; gap: 14px; margin-top: 8px;
+      font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-mute);
+    }
+    .line .bar-key span::before {
+      content: ""; display: inline-block; width: 8px; height: 8px;
+      border-radius: 2px; margin-right: 5px; vertical-align: middle;
+    }
+    .line .bar-key .k-cogs::before { background: var(--ink-mute); }
+    .line .bar-key .k-marg::before { background: var(--cilantro-deep); }
+    .line .accent {
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .line.l-1 .accent { background: var(--tomato); }
+    .line.l-2 .accent { background: linear-gradient(90deg, var(--tomato), var(--cilantro-deep)); }
+    .line.l-3 .accent { background: var(--mustard); }
 
-    /* Menu sketch */
+    /* Menu */
     .menu {
-      background: var(--paper);
+      background: var(--bg-soft);
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 24px 28px;
-      margin-top: 18px;
+      border-radius: 16px;
+      padding: 26px 28px;
+      margin-top: 22px;
       position: relative;
     }
     .menu::before {
-      content: "draft v0.1 · subject to taste";
-      position: absolute; top: -10px; right: 16px;
-      background: var(--tape);
-      font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
-      padding: 3px 10px; border-radius: 4px;
+      content: "draft v0.2 · subject to taste";
+      position: absolute; top: -11px; right: 20px;
+      background: var(--mustard);
       color: var(--char);
-      transform: rotate(1.5deg);
+      font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+      padding: 4px 11px; border-radius: 4px;
+      transform: rotate(2deg);
+      font-weight: 700;
     }
     .menu .row {
       display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
-      padding: 12px 0;
+      padding: 14px 0;
       border-bottom: 1px dashed var(--line);
     }
     .menu .row:last-child { border-bottom: 0; }
-    .menu .name { font-family: 'Fraunces', serif; font-weight: 600; font-size: 19px; }
-    .menu .desc { color: var(--ink-soft); font-size: 14.5px; display: block; margin-top: 2px; max-width: 540px; }
-    .menu .price { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--char); white-space: nowrap; }
-    .menu .tbd { color: var(--ink-soft); opacity: 0.7; }
+    .menu .name { font-family: 'Fraunces', serif; font-style: italic; font-weight: 700; font-size: 20px; color: var(--ink); }
+    .menu .desc { color: var(--ink-soft); font-size: 14.5px; display: block; margin-top: 3px; max-width: 560px; }
+    .menu .price { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--mustard); white-space: nowrap; font-weight: 500; }
+    .menu .price.tbd { color: var(--ink-mute); }
+    .menu .badge {
+      display: inline-block; margin-left: 8px;
+      font-family: 'JetBrains Mono', monospace; font-size: 9.5px;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 3px;
+      background: var(--tomato-glow); color: var(--tomato);
+      vertical-align: middle;
+    }
+    .menu .badge.jar { background: rgba(244,185,66,0.18); color: var(--mustard); }
 
-    /* Locations — the scouting board */
-    .locs { display: grid; gap: 14px; margin-top: 20px; }
-    @media (min-width: 720px) { .locs { grid-template-columns: 1fr 1fr; } }
-    .loc {
-      background: #fff;
+    /* MAP + scouting */
+    .map-wrap {
+      background: var(--bg-soft);
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 16px 18px;
-      position: relative;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border-radius: 16px;
+      padding: 18px;
+      margin-top: 22px;
     }
-    .loc:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(26,18,11,0.08); }
-    .loc h4 {
-      font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px;
-      margin: 0 0 4px;
-    }
-    .loc .meta {
+    .map-wrap svg { display: block; width: 100%; height: auto; border-radius: 10px; background: var(--char); }
+    .map-legend {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      margin-top: 14px;
       font-family: 'JetBrains Mono', monospace; font-size: 11px;
-      color: var(--ink-soft); letter-spacing: 0.05em; margin-bottom: 10px;
+      color: var(--ink-soft);
     }
-    .loc p { font-size: 14.5px; color: var(--ink-soft); margin: 0; }
-    .loc .tag {
-      position: absolute; top: 14px; right: 14px;
-      font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
-      padding: 3px 8px; border-radius: 999px;
-      letter-spacing: 0.06em; text-transform: uppercase;
+    .map-legend .key { display: inline-flex; align-items: center; gap: 6px; }
+    .map-legend .key::before {
+      content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%;
     }
-    .tag.t-front { background: rgba(106,142,28,0.18); color: var(--lime); }
-    .tag.t-watching { background: rgba(200,52,30,0.13); color: var(--tomato-deep); }
-    .tag.t-longshot { background: rgba(74,58,44,0.12); color: var(--ink-soft); }
+    .map-legend .k-front::before { background: var(--tomato); }
+    .map-legend .k-watch::before { background: var(--mustard); }
+    .map-legend .k-long::before { background: var(--ink-mute); }
+
+    /* Comps table */
+    .comps {
+      margin-top: 22px;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .comps table { width: 100%; border-collapse: collapse; }
+    .comps th, .comps td {
+      padding: 12px 16px; text-align: left;
+      border-bottom: 1px solid var(--line);
+      font-size: 13.5px;
+    }
+    .comps th {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-mute); font-weight: 500;
+      background: rgba(0,0,0,0.18);
+    }
+    .comps td.num { font-family: 'JetBrains Mono', monospace; color: var(--ink); }
+    .comps td .nh { font-family: 'Fraunces', serif; font-style: italic; font-weight: 700; font-size: 15.5px; color: var(--ink); display: block; }
+    .comps td .st { font-size: 11.5px; color: var(--ink-mute); font-family: 'JetBrains Mono', monospace; }
+    .comps tr:last-child td { border-bottom: 0; }
+    .comps .tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 3px 8px; border-radius: 3px;
+    }
+    .comps .tag.t-front { background: var(--tomato-glow); color: var(--tomato); }
+    .comps .tag.t-watch { background: rgba(244,185,66,0.18); color: var(--mustard); }
+    .comps .tag.t-long { background: rgba(196,217,107,0.13); color: var(--cilantro); }
+    .comps caption {
+      caption-side: bottom; padding: 10px 16px; text-align: left;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-mute);
+    }
+
+    /* Business model viz */
+    .biz {
+      display: grid; gap: 22px; margin-top: 24px;
+    }
+    @media (min-width: 820px) { .biz { grid-template-columns: 1.15fr 1fr; } }
+    .biz-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px 24px;
+    }
+    .biz-card h3 {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 800; font-size: 22px;
+      margin: 0 0 6px; color: var(--ink);
+    }
+    .biz-card .sub {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-mute);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 18px;
+    }
+    .stack {
+      display: flex; gap: 10px; align-items: flex-end;
+      height: 240px; padding: 8px 0 0;
+    }
+    .stack .col { flex: 1; display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+    .stack .col .yr {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-mute);
+      text-align: center; margin-top: 8px;
+    }
+    .stack .col .tot {
+      font-family: 'Fraunces', serif; font-weight: 700; font-size: 15px; color: var(--ink);
+      text-align: center; margin-bottom: 6px;
+    }
+    .stack .col .barbox {
+      flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
+      gap: 2px;
+    }
+    .stack .seg {
+      width: 100%; position: relative;
+    }
+    .stack .seg.s-burger { background: var(--ink-soft); border-radius: 2px 2px 0 0; }
+    .stack .seg.s-salsa { background: var(--tomato); }
+    .stack .seg.s-jar { background: var(--mustard); border-radius: 0 0 2px 2px; }
+    .biz-key {
+      display: flex; flex-wrap: wrap; gap: 14px;
+      margin-top: 14px;
+      font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--ink-soft);
+    }
+    .biz-key span { display: inline-flex; align-items: center; gap: 6px; }
+    .biz-key span::before {
+      content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px;
+    }
+    .biz-key .k-burger::before { background: var(--ink-soft); }
+    .biz-key .k-salsa::before { background: var(--tomato); }
+    .biz-key .k-jar::before { background: var(--mustard); }
+
+    .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 4px; }
+    .kpi {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(0,0,0,0.18);
+    }
+    .kpi .num {
+      font-family: 'Fraunces', serif; font-weight: 800; font-style: italic;
+      font-size: 30px; line-height: 1; color: var(--ink);
+    }
+    .kpi .num .small { font-size: 16px; color: var(--ink-soft); font-weight: 500; }
+    .kpi .lbl {
+      font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--ink-mute);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px;
+    }
+    .kpi .delta { color: var(--cilantro); font-size: 12px; font-family: 'JetBrains Mono', monospace; margin-top: 6px; display: block; }
 
     /* Build log */
     .log {
-      background: #fff;
+      background: var(--bg-soft);
       border: 1px solid var(--line);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 18px 22px;
       margin-top: 18px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 13.5px;
+      font-size: 13px;
     }
     .log .entry {
       display: grid; grid-template-columns: 110px 1fr; gap: 14px;
-      padding: 9px 0;
+      padding: 10px 0;
       border-bottom: 1px dashed var(--line);
     }
     .log .entry:last-child { border-bottom: 0; }
-    .log .date { color: var(--ink-soft); }
-    .log .what { color: var(--char); }
-    .log .what .tick { color: var(--lime); }
-    .log .what .open { color: var(--tomato-deep); }
+    .log .date { color: var(--ink-mute); }
+    .log .what { color: var(--ink-soft); }
+    .log .what .tick { color: var(--cilantro); margin-right: 4px; }
+    .log .what .open { color: var(--tomato); margin-right: 4px; }
+    .log .what strong { color: var(--ink); font-weight: 500; }
 
-    /* Stay in the loop */
+    /* form */
     .form {
-      background: var(--char);
-      color: var(--paper);
-      border-radius: 14px;
-      padding: 28px;
+      background: linear-gradient(135deg, var(--bg-warm), var(--bg-soft));
+      border: 1px solid var(--line-strong);
+      border-radius: 16px;
+      padding: 30px;
       margin-top: 22px;
     }
     .form h3 {
-      font-family: 'Fraunces', serif; font-weight: 700; font-size: 24px;
-      margin: 0 0 6px; color: #fff;
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 800; font-size: 26px;
+      margin: 0 0 6px; color: var(--ink);
     }
-    .form p { color: rgba(246,236,217,0.75); font-size: 15px; margin: 0 0 16px; }
+    .form .pp { color: var(--ink-soft); font-size: 15px; margin: 0 0 18px; }
     .form .field {
-      display: flex; gap: 8px; flex-wrap: wrap;
+      display: flex; gap: 10px; flex-wrap: wrap;
     }
     .form input {
       flex: 1 1 240px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--line-strong);
+      color: var(--ink);
       font: inherit; font-size: 15px;
-      padding: 12px 14px;
+      padding: 13px 16px;
       border-radius: 8px;
     }
-    .form input::placeholder { color: rgba(246,236,217,0.45); }
+    .form input::placeholder { color: var(--ink-mute); }
+    .form input:focus { outline: 2px solid var(--tomato); outline-offset: -1px; }
     .form button {
       background: var(--tomato);
       color: #fff;
       border: 0;
-      font: inherit; font-weight: 600; font-size: 15px;
-      padding: 12px 22px;
+      font: inherit; font-weight: 700; font-size: 15px;
+      padding: 13px 24px;
       border-radius: 8px;
       cursor: pointer;
-      transition: background 0.15s ease;
+      transition: background 0.15s ease, transform 0.1s ease;
     }
     .form button:hover { background: var(--tomato-deep); }
+    .form button:active { transform: translateY(1px); }
     .form .fine {
       font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
-      color: rgba(246,236,217,0.5); margin-top: 12px;
+      color: var(--ink-mute); margin-top: 14px;
     }
 
-    /* Footer */
     footer {
       margin-top: 56px;
       padding-top: 24px;
       border-top: 1px solid var(--line);
       font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
-      color: var(--ink-soft);
+      color: var(--ink-mute);
       display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
     }
-    footer a { color: var(--tomato-deep); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    footer a { color: var(--mustard); text-decoration: none; }
+    footer a:hover { color: var(--tomato); }
+
+    /* SVG label styling */
+    .pin-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      fill: var(--ink);
+      paint-order: stroke;
+      stroke: var(--char);
+      stroke-width: 3px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
   </style>
 </head>
 <body>
   <main class="wrap">
 
     <div class="strip" role="status" aria-label="project status">
-      <span><span class="dot"></span>open notebook · v0.1</span>
-      <span>updated jun 1, 2026</span>
-      <span>1 owner, 0 cooks (yet)</span>
+      <span><span class="dot"></span>open notebook · v0.2</span>
+      <span>updated jun 1 2026</span>
+      <span>1 owner · 0 cooks (yet)</span>
       <span>opening: TBD · LA</span>
     </div>
 
     <header class="hero">
       <div class="kicker">a burger shop coming to los angeles</div>
-      <h1>burgers, made with the kind of <span class="salsa">salsa</span> you'd eat with a spoon.</h1>
+      <h1>burgers <span class="amp">&amp;</span> the kind of <span class="salsa">salsa</span> you'd eat with a spoon.</h1>
       <p class="lede">
-        bobos is a small idea getting bigger out loud. One thing on the brain: a great burger,
-        and a salsa good enough to put <em class="em">on</em> the burger — not next to it.
-        We're scouting blocks, writing menus on napkins, and arguing about pickles. This page
-        is the napkin.
+        bobos sells three things: <strong>burgers</strong>, <strong>burgers with our salsa on them</strong>, and <strong>jars of the salsa</strong> at the front of the counter so you can take the good stuff home. We're scouting blocks in LA, writing menus on napkins, and arguing about pickles. <em>This page is the napkin.</em>
       </p>
     </header>
 
     <section>
-      <div class="sec-kicker">the idea</div>
-      <h2>Three things we already believe.</h2>
-      <p>
-        Most things about bobos are still up for grabs. These aren't.
-      </p>
-      <div class="beliefs">
-        <div class="belief">
-          <span class="n">01</span>
-          <h3>The salsa goes on the burger.</h3>
-          <p>Not in a cup on the side. Built into the bite. The whole place starts here.</p>
+      <div class="sec-kicker">what we sell</div>
+      <h2>Three product lines, one obsession.</h2>
+      <p>The salsa is the headline. It goes on the burger by default, off the burger if you ask, and into a jar if you want to take it home.</p>
+      <div class="lines">
+
+        <div class="line l-1">
+          <div class="accent"></div>
+          <span class="n">01 · the burger</span>
+          <h3>Smashed double, no salsa.</h3>
+          <p class="desc">For purists, kids, and the salsa-curious working their way up. The base of the whole thing.</p>
+          <div class="ue">
+            <span class="lbl">price</span><span class="val">$9.00</span>
+            <span class="lbl">cogs</span><span class="val">$3.20</span>
+            <span class="lbl">contribution</span><span class="val pos">$5.80 · 64%</span>
+          </div>
+          <div class="bar" aria-hidden="true">
+            <div class="seg cogs" style="width: 35.5%"></div>
+            <div class="seg marg" style="width: 64.5%"></div>
+          </div>
+          <div class="bar-key"><span class="k-cogs">cogs</span><span class="k-marg">margin</span></div>
         </div>
-        <div class="belief">
-          <span class="n">02</span>
-          <h3>Small menu, big opinions.</h3>
-          <p>One burger we'd defend in court, a couple of riffs, fries that earn their seat. Done.</p>
+
+        <div class="line l-2">
+          <div class="accent"></div>
+          <span class="n">02 · the headline</span>
+          <h3>Smashed double, salsa built in.</h3>
+          <p class="desc">The reason bobos exists. Salsa roja worked into the bun and the bite, not served alongside. Adds two dollars, ten cents to your day.</p>
+          <div class="ue">
+            <span class="lbl">price</span><span class="val">$11.00</span>
+            <span class="lbl">cogs</span><span class="val">$3.60</span>
+            <span class="lbl">contribution</span><span class="val pos">$7.40 · 67%</span>
+          </div>
+          <div class="bar" aria-hidden="true">
+            <div class="seg cogs" style="width: 32.7%"></div>
+            <div class="seg marg" style="width: 67.3%"></div>
+          </div>
+          <div class="bar-key"><span class="k-cogs">cogs</span><span class="k-marg">margin</span></div>
         </div>
-        <div class="belief">
-          <span class="n">03</span>
-          <h3>A counter, not a concept.</h3>
-          <p>You order, you sit, you eat, you go. The room is warm, the line moves, the music's good.</p>
+
+        <div class="line l-3">
+          <div class="accent"></div>
+          <span class="n">03 · jar at the counter</span>
+          <h3>16oz of the salsa, to go.</h3>
+          <p class="desc">The CPG bet. Buy it on the way out, put it on your eggs Saturday morning. Higher margin, lower frequency — but it's how a burger joint becomes a brand.</p>
+          <div class="ue">
+            <span class="lbl">price</span><span class="val">$14.00</span>
+            <span class="lbl">cogs</span><span class="val">$3.10</span>
+            <span class="lbl">contribution</span><span class="val pos">$10.90 · 78%</span>
+          </div>
+          <div class="bar" aria-hidden="true">
+            <div class="seg cogs" style="width: 22.1%"></div>
+            <div class="seg marg" style="width: 77.9%"></div>
+          </div>
+          <div class="bar-key"><span class="k-cogs">cogs</span><span class="k-marg">margin</span></div>
         </div>
       </div>
     </section>
 
     <section>
-      <div class="sec-kicker">the menu (so far)</div>
-      <h2>What we're cooking, on paper.</h2>
+      <div class="sec-kicker">how the business could work</div>
+      <h2>One counter, three revenue lines, three years.</h2>
+      <p>Working assumption: ~180 burger-equivalent transactions a day, $11 average ticket, 312 service days a year. The jar program starts as a stunt and grows into a real second business. Numbers are honest-guess directional — meant to be argued with.</p>
+      <div class="biz">
+        <div class="biz-card">
+          <h3>Projected revenue mix</h3>
+          <div class="sub">$, by product line · yr 1–3</div>
+          <div class="stack" aria-label="projected revenue mix by year">
+            <div class="col">
+              <div class="tot">$480k</div>
+              <div class="barbox">
+                <div class="seg s-burger" style="height: 56%" title="burgers $270k"></div>
+                <div class="seg s-salsa" style="height: 37%" title="burgers with salsa $175k"></div>
+                <div class="seg s-jar" style="height: 7%" title="jars $35k"></div>
+              </div>
+              <div class="yr">year 1</div>
+            </div>
+            <div class="col">
+              <div class="tot">$780k</div>
+              <div class="barbox">
+                <div class="seg s-burger" style="height: 42%" title="burgers $330k"></div>
+                <div class="seg s-salsa" style="height: 42%" title="burgers with salsa $330k"></div>
+                <div class="seg s-jar" style="height: 16%" title="jars $120k"></div>
+              </div>
+              <div class="yr">year 2</div>
+            </div>
+            <div class="col">
+              <div class="tot">$1.20M</div>
+              <div class="barbox">
+                <div class="seg s-burger" style="height: 33%" title="burgers $400k"></div>
+                <div class="seg s-salsa" style="height: 42%" title="burgers with salsa $500k"></div>
+                <div class="seg s-jar" style="height: 25%" title="jars $300k"></div>
+              </div>
+              <div class="yr">year 3</div>
+            </div>
+          </div>
+          <div class="biz-key">
+            <span class="k-burger">burgers</span>
+            <span class="k-salsa">burgers + salsa</span>
+            <span class="k-jar">jars to go</span>
+          </div>
+        </div>
+
+        <div class="biz-card">
+          <h3>The shape of a good month</h3>
+          <div class="sub">year 1 · steady-state estimate</div>
+          <div class="kpi-grid">
+            <div class="kpi">
+              <div class="num">5,400</div>
+              <div class="lbl">tickets / month</div>
+              <span class="delta">~180/day · 30 days</span>
+            </div>
+            <div class="kpi">
+              <div class="num"><span class="small">$</span>40k</div>
+              <div class="lbl">revenue / month</div>
+              <span class="delta">$11 avg ticket</span>
+            </div>
+            <div class="kpi">
+              <div class="num">42<span class="small">%</span></div>
+              <div class="lbl">attach rate, salsa-on</div>
+              <span class="delta">salsa-builds vs plain</span>
+            </div>
+            <div class="kpi">
+              <div class="num">210</div>
+              <div class="lbl">jars / month</div>
+              <span class="delta">~7/day · grows w/ regulars</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-kicker">the scouting board</div>
+      <h2>Where in LA could bobos live?</h2>
+      <p>Six neighborhoods we're walking. The map is rough on purpose — pins are where we think a small counter with a serious salsa habit could fit in by tuesday. Tap the table below for the comps.</p>
+
+      <div class="map-wrap">
+        <svg viewBox="0 0 800 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="stylized map of Los Angeles with six candidate locations">
+          <!-- background -->
+          <rect width="800" height="480" fill="#0e0806" />
+
+          <!-- ocean (lower-left wedge) -->
+          <path d="M 0,260 Q 80,290 160,310 Q 240,330 320,360 L 320,480 L 0,480 Z" fill="#1a2a2e" opacity="0.55" />
+          <text x="60" y="430" class="pin-label" style="font-size:10px; fill:#5a7378; stroke:none; font-style:italic;">pacific</text>
+
+          <!-- mountains (top band, jagged) -->
+          <path d="M 0,80 L 60,40 L 120,72 L 180,30 L 250,68 L 320,38 L 390,72 L 460,42 L 540,76 L 620,40 L 700,70 L 770,38 L 800,60 L 800,0 L 0,0 Z" fill="#2a1810" opacity="0.65" />
+          <text x="40" y="22" class="pin-label" style="font-size:10px; fill:#7a5a48; stroke:none; font-style:italic;">san gabriels</text>
+
+          <!-- LA River, runs SE from north -->
+          <path d="M 360,80 Q 380,140 410,200 Q 440,250 480,310 Q 520,360 560,420" stroke="#4a6878" stroke-width="2" fill="none" opacity="0.6" stroke-dasharray="0" />
+          <text x="380" y="115" class="pin-label" style="font-size:9px; fill:#5a7a8a; stroke:none; font-style:italic;">LA river</text>
+
+          <!-- Freeway grid (subtle) -->
+          <g stroke="#3a2418" stroke-width="1" opacity="0.55" fill="none">
+            <!-- 101 — north-south through Hollywood/DTLA -->
+            <path d="M 280,90 Q 320,160 380,220 Q 440,280 500,340" />
+            <!-- 10 — east-west -->
+            <path d="M 60,330 Q 200,335 360,345 Q 520,355 760,365" />
+            <!-- 110 — DTLA south -->
+            <path d="M 520,300 L 540,440" />
+            <!-- 5 — diagonal -->
+            <path d="M 400,80 Q 460,180 520,290 Q 560,360 600,440" />
+            <!-- 405 — westside -->
+            <path d="M 180,140 Q 170,250 160,360 Q 155,420 150,470" />
+          </g>
+          <text x="276" y="86" class="pin-label" style="font-size:8px; fill:#6b4a36; stroke:none;">101</text>
+          <text x="40" y="328" class="pin-label" style="font-size:8px; fill:#6b4a36; stroke:none;">10</text>
+          <text x="146" y="138" class="pin-label" style="font-size:8px; fill:#6b4a36; stroke:none;">405</text>
+          <text x="394" y="76" class="pin-label" style="font-size:8px; fill:#6b4a36; stroke:none;">5</text>
+
+          <!-- DTLA marker (context) -->
+          <circle cx="510" cy="320" r="2.5" fill="#6b4a36" />
+          <text x="518" y="324" class="pin-label" style="font-size:9px; fill:#8a755a; stroke:none;">DTLA</text>
+
+          <!-- PINS -->
+          <!-- Highland Park - front runner -->
+          <g>
+            <circle cx="600" cy="200" r="14" fill="#ff5436" opacity="0.18" />
+            <circle cx="600" cy="200" r="7" fill="#ff5436" />
+            <circle cx="600" cy="200" r="2.5" fill="#fff" />
+            <text x="614" y="195" class="pin-label">Highland Park</text>
+            <text x="614" y="207" class="pin-label" style="font-size:8px; fill:#c9b690;">York Blvd</text>
+          </g>
+
+          <!-- Virgil Village - front runner -->
+          <g>
+            <circle cx="420" cy="240" r="14" fill="#ff5436" opacity="0.18" />
+            <circle cx="420" cy="240" r="7" fill="#ff5436" />
+            <circle cx="420" cy="240" r="2.5" fill="#fff" />
+            <text x="434" y="235" class="pin-label">Virgil Village</text>
+            <text x="434" y="247" class="pin-label" style="font-size:8px; fill:#c9b690;">Virgil + Santa Monica</text>
+          </g>
+
+          <!-- Frogtown - watching -->
+          <g>
+            <circle cx="490" cy="210" r="12" fill="#f4b942" opacity="0.18" />
+            <circle cx="490" cy="210" r="6" fill="#f4b942" />
+            <circle cx="490" cy="210" r="2.2" fill="#1a0e08" />
+            <text x="488" y="190" class="pin-label" text-anchor="middle">Frogtown</text>
+            <text x="488" y="201" class="pin-label" style="font-size:8px; fill:#c9b690;" text-anchor="middle">Blake Ave</text>
+          </g>
+
+          <!-- Echo Park - watching -->
+          <g>
+            <circle cx="478" cy="278" r="12" fill="#f4b942" opacity="0.18" />
+            <circle cx="478" cy="278" r="6" fill="#f4b942" />
+            <circle cx="478" cy="278" r="2.2" fill="#1a0e08" />
+            <text x="438" y="296" class="pin-label">Echo Park</text>
+            <text x="438" y="307" class="pin-label" style="font-size:8px; fill:#c9b690;">Sunset · east of Alvarado</text>
+          </g>
+
+          <!-- Mar Vista - watching -->
+          <g>
+            <circle cx="200" cy="340" r="12" fill="#f4b942" opacity="0.18" />
+            <circle cx="200" cy="340" r="6" fill="#f4b942" />
+            <circle cx="200" cy="340" r="2.2" fill="#1a0e08" />
+            <text x="214" y="335" class="pin-label">Mar Vista</text>
+            <text x="214" y="347" class="pin-label" style="font-size:8px; fill:#c9b690;">Venice Blvd</text>
+          </g>
+
+          <!-- Smorgasburg ROW DTLA - long shot -->
+          <g>
+            <circle cx="558" cy="358" r="11" fill="#8a755a" opacity="0.2" />
+            <circle cx="558" cy="358" r="5.5" fill="#8a755a" />
+            <circle cx="558" cy="358" r="2" fill="#1a0e08" />
+            <text x="572" y="355" class="pin-label">Smorgasburg LA</text>
+            <text x="572" y="367" class="pin-label" style="font-size:8px; fill:#c9b690;">ROW DTLA · sundays</text>
+          </g>
+
+          <!-- compass -->
+          <g transform="translate(740, 50)" opacity="0.7">
+            <circle r="14" fill="none" stroke="#5a4a3a" stroke-width="0.8" />
+            <path d="M 0,-12 L 3,0 L 0,-2 L -3,0 Z" fill="#ff5436" />
+            <text x="0" y="-18" class="pin-label" text-anchor="middle" style="font-size:9px; stroke:none; fill:#8a755a;">N</text>
+          </g>
+        </svg>
+        <div class="map-legend">
+          <span class="key k-front">front runner</span>
+          <span class="key k-watch">watching</span>
+          <span class="key k-long">long shot · stress test</span>
+        </div>
+      </div>
+
+      <div class="comps">
+        <table>
+          <thead>
+            <tr>
+              <th>candidate</th>
+              <th>sq ft</th>
+              <th>$/sf/mo</th>
+              <th>est. monthly rent</th>
+              <th>foot traffic /day</th>
+              <th>posture</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="nh">Highland Park</span><span class="st">York Blvd · walkable, food-curious</span></td>
+              <td class="num">1,200</td>
+              <td class="num">$5.50</td>
+              <td class="num">$6,600</td>
+              <td class="num">~1,800</td>
+              <td><span class="tag t-front">front runner</span></td>
+            </tr>
+            <tr>
+              <td><span class="nh">Virgil Village</span><span class="st">Virgil + Santa Monica · spicy-food literate</span></td>
+              <td class="num">1,400</td>
+              <td class="num">$5.20</td>
+              <td class="num">$7,280</td>
+              <td class="num">~1,500</td>
+              <td><span class="tag t-front">front runner</span></td>
+            </tr>
+            <tr>
+              <td><span class="nh">Frogtown</span><span class="st">Blake Ave · river-adjacent, creative weekday lunch</span></td>
+              <td class="num">1,800</td>
+              <td class="num">$3.40</td>
+              <td class="num">$6,120</td>
+              <td class="num">~600</td>
+              <td><span class="tag t-watch">watching</span></td>
+            </tr>
+            <tr>
+              <td><span class="nh">Echo Park</span><span class="st">Sunset, east of Alvarado · night + tourist energy</span></td>
+              <td class="num">950</td>
+              <td class="num">$7.10</td>
+              <td class="num">$6,745</td>
+              <td class="num">~2,400</td>
+              <td><span class="tag t-watch">watching</span></td>
+            </tr>
+            <tr>
+              <td><span class="nh">Mar Vista</span><span class="st">Venice Blvd · westside, families, sunday market</span></td>
+              <td class="num">1,600</td>
+              <td class="num">$4.80</td>
+              <td class="num">$7,680</td>
+              <td class="num">~900</td>
+              <td><span class="tag t-watch">watching</span></td>
+            </tr>
+            <tr>
+              <td><span class="nh">Smorgasburg LA</span><span class="st">ROW DTLA · sundays only, brutal honesty</span></td>
+              <td class="num">stall</td>
+              <td class="num">event</td>
+              <td class="num">~$4,500 / qtr</td>
+              <td class="num">event-based</td>
+              <td><span class="tag t-long">long shot</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding: 10px 16px 14px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-mute);">
+          // numbers are directional comps, not signed letters of intent — we'll replace these with real broker quotes as walks become tours.
+        </div>
+      </div>
+
+      <p style="margin-top: 24px; font-size: 15px;">
+        Know a block we should be walking? Know a landlord? Know someone who already does the best salsa in their neighborhood and doesn't know it yet? <a class="inline" href="mailto:hello@bobos.la">tell us</a>.
+      </p>
+    </section>
+
+    <section>
+      <div class="sec-kicker">the menu (on paper)</div>
+      <h2>What we're cooking, in draft.</h2>
       <div class="menu">
         <div class="row">
           <div>
-            <div class="name">the bobo</div>
+            <span class="name">the bobo</span><span class="badge">house</span>
             <span class="desc">smashed double, american, pickles, raw white onion, our salsa roja built into the bun. the one.</span>
           </div>
           <div class="price">$11</div>
         </div>
         <div class="row">
           <div>
-            <div class="name">the green one</div>
+            <span class="name">the green one</span><span class="badge">heat</span>
             <span class="desc">single patty, salsa verde, queso fresco, avocado, charred jalapeño. for people who say "spicy" and mean it.</span>
           </div>
           <div class="price">$10</div>
         </div>
         <div class="row">
           <div>
-            <div class="name">the quiet one</div>
+            <span class="name">the quiet one</span>
             <span class="desc">single, butter lettuce, tomato, secret sauce that is mostly mayo. no salsa. we don't judge.</span>
           </div>
           <div class="price">$9</div>
         </div>
         <div class="row">
           <div>
-            <div class="name">fries</div>
+            <span class="name">fries</span>
             <span class="desc">double-fried, sea salt. salsa for dipping comes free — that's the whole bit.</span>
           </div>
           <div class="price">$4</div>
         </div>
         <div class="row">
           <div>
-            <div class="name">salsa flight</div>
+            <span class="name">salsa flight</span>
             <span class="desc">three salsas, a basket of chips, a window seat. for the people doing research.</span>
           </div>
           <div class="price">$6</div>
         </div>
         <div class="row">
           <div>
-            <div class="name">soft serve, today's salsa swirl</div>
+            <span class="name">salsa roja · 16oz jar</span><span class="badge jar">take home</span>
+            <span class="desc">the one from the burger. for your eggs, your tacos, your tuesday.</span>
+          </div>
+          <div class="price">$14</div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">salsa verde · 16oz jar</span><span class="badge jar">take home</span>
+            <span class="desc">brighter, hotter, weekday-er. ferments a few weeks in the fridge if you let it.</span>
+          </div>
+          <div class="price">$14</div>
+        </div>
+        <div class="row">
+          <div>
+            <span class="name">soft serve, today's salsa swirl</span>
             <span class="desc">probably mango–habanero on the swirl. we'll see.</span>
           </div>
           <div class="price tbd">tbd</div>
@@ -372,68 +863,17 @@
     </section>
 
     <section>
-      <div class="sec-kicker">the scouting board</div>
-      <h2>Where in LA could bobos live?</h2>
-      <p>
-        We're walking blocks, asking landlords stupid questions, and counting how many people
-        already have a coffee in their hand at 11am. Here's the current shortlist — public,
-        because half of you reading this know these streets better than we do.
-      </p>
-      <div class="locs">
-        <div class="loc">
-          <span class="tag t-front">front runner</span>
-          <h4>Highland Park · York Blvd</h4>
-          <div class="meta">walkable · food-curious · neighborhood-loyal</div>
-          <p>The kind of street where a small counter with a small menu fits in by tuesday. Rent is no longer cheap, but the foot traffic is real every day, not just weekends.</p>
-        </div>
-        <div class="loc">
-          <span class="tag t-front">front runner</span>
-          <h4>Virgil Village · Virgil + Santa Monica</h4>
-          <div class="meta">young · spicy-food literate · already a corridor</div>
-          <p>The kitchens on this stretch already speak our language. A burger joint with serious salsa wouldn't be a translation — it'd be a sibling.</p>
-        </div>
-        <div class="loc">
-          <span class="tag t-watching">watching</span>
-          <h4>Frogtown · Blake Ave</h4>
-          <div class="meta">river-adjacent · slow build · creative weekday lunch crowd</div>
-          <p>Cheaper rent, a built-in lunch crowd from the studios and offices, and bikes on the river path. Lower ceiling, lower floor.</p>
-        </div>
-        <div class="loc">
-          <span class="tag t-watching">watching</span>
-          <h4>Echo Park · Sunset east of Alvarado</h4>
-          <div class="meta">night energy · tourist-meets-local · loud</div>
-          <p>Built-in dinner and after-show crowd. The trade is a louder room and louder rent. We'd need a real plan for late-night.</p>
-        </div>
-        <div class="loc">
-          <span class="tag t-watching">watching</span>
-          <h4>Mar Vista · Venice Blvd</h4>
-          <div class="meta">westside · families · sunday-market adjacent</div>
-          <p>Quieter, steadier. Less buzz, more repeat orders. The kind of place where you build a regulars list in a year.</p>
-        </div>
-        <div class="loc">
-          <span class="tag t-longshot">long shot</span>
-          <h4>Smorgasburg LA · ROW DTLA</h4>
-          <div class="meta">sundays only · proof-of-concept · brutal honesty</div>
-          <p>Not a home — a stress test. Three months of Sundays would tell us more about the menu than three months of focus groups.</p>
-        </div>
-      </div>
-      <p style="margin-top: 24px; font-size: 15px; color: var(--ink-soft);">
-        Know a block we should be walking? Know a landlord? Know someone who already does
-        the best salsa in their neighborhood and doesn't know it yet? <a href="mailto:hello@bobos.la" style="color: var(--tomato-deep);">tell us</a>.
-      </p>
-    </section>
-
-    <section>
       <div class="sec-kicker">the build log</div>
       <h2>Thinking, in public.</h2>
-      <p>
-        bobos doesn't exist yet. This is a running list of the decisions, dead ends, and
-        small wins on the way to opening day. New entries up top.
-      </p>
+      <p>bobos doesn't exist yet. This is the running list of decisions, dead ends, and small wins on the way to opening day. New entries up top.</p>
       <div class="log">
         <div class="entry">
           <div class="date">jun 01 · 2026</div>
-          <div class="what"><span class="open">▸</span> this page goes live. v0.1. the menu is fake. the scouting board is real.</div>
+          <div class="what"><span class="open">▸</span> <strong>v0.2.</strong> dark palette, scouting map with pins, comps table, projected revenue mix. the third product line (jars at the counter) gets its own spotlight.</div>
+        </div>
+        <div class="entry">
+          <div class="date">jun 01 · 2026</div>
+          <div class="what"><span class="tick">✓</span> <strong>v0.1 napkin.</strong> hero, belief stack, menu draft, build log.</div>
         </div>
         <div class="entry">
           <div class="date">may 28 · 2026</div>
@@ -449,7 +889,7 @@
         </div>
         <div class="entry">
           <div class="date">may 02 · 2026</div>
-          <div class="what">the one-sentence pitch: <em>a burger joint where the salsa goes on the burger.</em></div>
+          <div class="what">the one-sentence pitch: <em>a burger joint where the salsa goes on the burger — and home with you in a jar.</em></div>
         </div>
       </div>
     </section>
@@ -459,18 +899,18 @@
       <h2>Get the opening day text.</h2>
       <div class="form">
         <h3>One message, one day — opening day.</h3>
-        <p>No newsletter, no "we're updating our menu!" emails. Just a single note when there's a door to walk through.</p>
-        <form class="field" onsubmit="event.preventDefault(); this.querySelector('button').textContent='noted ✓'; this.querySelector('button').disabled=true; this.querySelector('input').value='';">
+        <p class="pp">No newsletter, no "we're updating our menu!" emails. Just a single note when there's a door to walk through.</p>
+        <form class="field" onsubmit="event.preventDefault(); var b=this.querySelector('button'); b.textContent='noted ✓'; b.disabled=true; this.querySelector('input').value='';">
           <input type="email" required placeholder="you@somewhere.com" aria-label="email" />
           <button type="submit">notify me</button>
         </form>
-        <div class="fine">// capture endpoint pending — for now this just nods at you politely</div>
+        <div class="fine">// capture endpoint pending — for now this nods at you politely.</div>
       </div>
     </section>
 
     <footer>
       <div>bobos · los angeles · ☎ tbd · ✉ hello@bobos.la</div>
-      <div>napkin v0.1 · last updated jun 1, 2026</div>
+      <div>napkin v0.2 · last updated jun 1, 2026</div>
     </footer>
 
   </main>
