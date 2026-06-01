@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bobos — a burger joint that takes salsa seriously</title>
+  <meta name="description" content="bobos is a burger shop coming to Los Angeles. The salsa goes on the burger. It's a thinking-out-loud kind of lander while we figure out where to plant the flag." />
+  <meta property="og:title" content="bobos — burgers + salsa, LA, soon" />
+  <meta property="og:description" content="A burger joint coming to LA. The salsa goes on the burger. This page is the napkin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fdf6ec;
+      --ink: #1a120b;
+      --ink-soft: #4a3a2c;
+      --tomato: #c8341e;
+      --tomato-deep: #9b2614;
+      --char: #2a1a10;
+      --lime: #6a8e1c;
+      --paper: #f6ecd9;
+      --line: #d9c8a9;
+      --tape: rgba(230, 200, 90, 0.55);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(200,52,30,0.06) 0, transparent 40%),
+        radial-gradient(circle at 88% 60%, rgba(106,142,28,0.07) 0, transparent 45%);
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 32px 24px 96px; }
+
+    /* Top status strip — sets the "evolving" tone */
+    .strip {
+      display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.4);
+    }
+    .strip .dot {
+      display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--tomato); margin-right: 8px;
+      box-shadow: 0 0 0 0 rgba(200,52,30,0.5);
+      animation: pulse 2.2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(200,52,30,0.45); }
+      70% { box-shadow: 0 0 0 8px rgba(200,52,30,0); }
+      100% { box-shadow: 0 0 0 0 rgba(200,52,30,0); }
+    }
+    .strip span + span::before { content: "·"; margin-right: 18px; color: var(--line); }
+
+    /* Hero */
+    header.hero { padding: 56px 0 24px; }
+    .kicker {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--tomato-deep);
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 800;
+      font-size: clamp(48px, 9vw, 96px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin: 0 0 22px;
+    }
+    h1 .salsa {
+      color: var(--tomato);
+      font-style: italic;
+      font-weight: 600;
+      position: relative;
+    }
+    h1 .salsa::after {
+      content: ""; position: absolute; left: -2%; right: -2%; bottom: 6px; height: 14px;
+      background: var(--tomato);
+      opacity: 0.16; border-radius: 12px; transform: rotate(-1.2deg);
+      z-index: -1;
+    }
+    .lede {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(20px, 2.4vw, 24px);
+      line-height: 1.45;
+      color: var(--ink-soft);
+      max-width: 620px;
+      margin: 0 0 28px;
+    }
+
+    /* Section */
+    section { padding: 48px 0; border-top: 1px solid var(--line); }
+    section:first-of-type { border-top: 0; }
+    h2 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(28px, 4vw, 38px);
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      margin: 0 0 8px;
+    }
+    .sec-kicker {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+    p { margin: 0 0 16px; }
+    em.em { font-style: italic; color: var(--char); }
+
+    /* The idea — three "things we believe" */
+    .beliefs { display: grid; gap: 18px; margin-top: 22px; }
+    @media (min-width: 720px) { .beliefs { grid-template-columns: 1fr 1fr 1fr; } }
+    .belief {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .belief h3 {
+      font-family: 'Fraunces', serif; font-weight: 700; font-size: 19px;
+      margin: 0 0 8px; line-height: 1.2;
+    }
+    .belief p { font-size: 15px; color: var(--ink-soft); margin: 0; }
+    .belief .n {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      color: var(--tomato-deep); letter-spacing: 0.1em;
+      display: block; margin-bottom: 6px;
+    }
+
+    /* Menu sketch */
+    .menu {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin-top: 18px;
+      position: relative;
+    }
+    .menu::before {
+      content: "draft v0.1 · subject to taste";
+      position: absolute; top: -10px; right: 16px;
+      background: var(--tape);
+      font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+      padding: 3px 10px; border-radius: 4px;
+      color: var(--char);
+      transform: rotate(1.5deg);
+    }
+    .menu .row {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+    .menu .row:last-child { border-bottom: 0; }
+    .menu .name { font-family: 'Fraunces', serif; font-weight: 600; font-size: 19px; }
+    .menu .desc { color: var(--ink-soft); font-size: 14.5px; display: block; margin-top: 2px; max-width: 540px; }
+    .menu .price { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--char); white-space: nowrap; }
+    .menu .tbd { color: var(--ink-soft); opacity: 0.7; }
+
+    /* Locations — the scouting board */
+    .locs { display: grid; gap: 14px; margin-top: 20px; }
+    @media (min-width: 720px) { .locs { grid-template-columns: 1fr 1fr; } }
+    .loc {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+      position: relative;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .loc:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(26,18,11,0.08); }
+    .loc h4 {
+      font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px;
+      margin: 0 0 4px;
+    }
+    .loc .meta {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      color: var(--ink-soft); letter-spacing: 0.05em; margin-bottom: 10px;
+    }
+    .loc p { font-size: 14.5px; color: var(--ink-soft); margin: 0; }
+    .loc .tag {
+      position: absolute; top: 14px; right: 14px;
+      font-family: 'JetBrains Mono', monospace; font-size: 10.5px;
+      padding: 3px 8px; border-radius: 999px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .tag.t-front { background: rgba(106,142,28,0.18); color: var(--lime); }
+    .tag.t-watching { background: rgba(200,52,30,0.13); color: var(--tomato-deep); }
+    .tag.t-longshot { background: rgba(74,58,44,0.12); color: var(--ink-soft); }
+
+    /* Build log */
+    .log {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-top: 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13.5px;
+    }
+    .log .entry {
+      display: grid; grid-template-columns: 110px 1fr; gap: 14px;
+      padding: 9px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+    .log .entry:last-child { border-bottom: 0; }
+    .log .date { color: var(--ink-soft); }
+    .log .what { color: var(--char); }
+    .log .what .tick { color: var(--lime); }
+    .log .what .open { color: var(--tomato-deep); }
+
+    /* Stay in the loop */
+    .form {
+      background: var(--char);
+      color: var(--paper);
+      border-radius: 14px;
+      padding: 28px;
+      margin-top: 22px;
+    }
+    .form h3 {
+      font-family: 'Fraunces', serif; font-weight: 700; font-size: 24px;
+      margin: 0 0 6px; color: #fff;
+    }
+    .form p { color: rgba(246,236,217,0.75); font-size: 15px; margin: 0 0 16px; }
+    .form .field {
+      display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .form input {
+      flex: 1 1 240px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font: inherit; font-size: 15px;
+      padding: 12px 14px;
+      border-radius: 8px;
+    }
+    .form input::placeholder { color: rgba(246,236,217,0.45); }
+    .form button {
+      background: var(--tomato);
+      color: #fff;
+      border: 0;
+      font: inherit; font-weight: 600; font-size: 15px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .form button:hover { background: var(--tomato-deep); }
+    .form .fine {
+      font-family: 'JetBrains Mono', monospace; font-size: 11.5px;
+      color: rgba(246,236,217,0.5); margin-top: 12px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--ink-soft);
+      display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
+    }
+    footer a { color: var(--tomato-deep); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+
+    <div class="strip" role="status" aria-label="project status">
+      <span><span class="dot"></span>open notebook · v0.1</span>
+      <span>updated jun 1, 2026</span>
+      <span>1 owner, 0 cooks (yet)</span>
+      <span>opening: TBD · LA</span>
+    </div>
+
+    <header class="hero">
+      <div class="kicker">a burger shop coming to los angeles</div>
+      <h1>burgers, made with the kind of <span class="salsa">salsa</span> you'd eat with a spoon.</h1>
+      <p class="lede">
+        bobos is a small idea getting bigger out loud. One thing on the brain: a great burger,
+        and a salsa good enough to put <em class="em">on</em> the burger — not next to it.
+        We're scouting blocks, writing menus on napkins, and arguing about pickles. This page
+        is the napkin.
+      </p>
+    </header>
+
+    <section>
+      <div class="sec-kicker">the idea</div>
+      <h2>Three things we already believe.</h2>
+      <p>
+        Most things about bobos are still up for grabs. These aren't.
+      </p>
+      <div class="beliefs">
+        <div class="belief">
+          <span class="n">01</span>
+          <h3>The salsa goes on the burger.</h3>
+          <p>Not in a cup on the side. Built into the bite. The whole place starts here.</p>
+        </div>
+        <div class="belief">
+          <span class="n">02</span>
+          <h3>Small menu, big opinions.</h3>
+          <p>One burger we'd defend in court, a couple of riffs, fries that earn their seat. Done.</p>
+        </div>
+        <div class="belief">
+          <span class="n">03</span>
+          <h3>A counter, not a concept.</h3>
+          <p>You order, you sit, you eat, you go. The room is warm, the line moves, the music's good.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-kicker">the menu (so far)</div>
+      <h2>What we're cooking, on paper.</h2>
+      <div class="menu">
+        <div class="row">
+          <div>
+            <div class="name">the bobo</div>
+            <span class="desc">smashed double, american, pickles, raw white onion, our salsa roja built into the bun. the one.</span>
+          </div>
+          <div class="price">$11</div>
+        </div>
+        <div class="row">
+          <div>
+            <div class="name">the green one</div>
+            <span class="desc">single patty, salsa verde, queso fresco, avocado, charred jalapeño. for people who say "spicy" and mean it.</span>
+          </div>
+          <div class="price">$10</div>
+        </div>
+        <div class="row">
+          <div>
+            <div class="name">the quiet one</div>
+            <span class="desc">single, butter lettuce, tomato, secret sauce that is mostly mayo. no salsa. we don't judge.</span>
+          </div>
+          <div class="price">$9</div>
+        </div>
+        <div class="row">
+          <div>
+            <div class="name">fries</div>
+            <span class="desc">double-fried, sea salt. salsa for dipping comes free — that's the whole bit.</span>
+          </div>
+          <div class="price">$4</div>
+        </div>
+        <div class="row">
+          <div>
+            <div class="name">salsa flight</div>
+            <span class="desc">three salsas, a basket of chips, a window seat. for the people doing research.</span>
+          </div>
+          <div class="price">$6</div>
+        </div>
+        <div class="row">
+          <div>
+            <div class="name">soft serve, today's salsa swirl</div>
+            <span class="desc">probably mango–habanero on the swirl. we'll see.</span>
+          </div>
+          <div class="price tbd">tbd</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-kicker">the scouting board</div>
+      <h2>Where in LA could bobos live?</h2>
+      <p>
+        We're walking blocks, asking landlords stupid questions, and counting how many people
+        already have a coffee in their hand at 11am. Here's the current shortlist — public,
+        because half of you reading this know these streets better than we do.
+      </p>
+      <div class="locs">
+        <div class="loc">
+          <span class="tag t-front">front runner</span>
+          <h4>Highland Park · York Blvd</h4>
+          <div class="meta">walkable · food-curious · neighborhood-loyal</div>
+          <p>The kind of street where a small counter with a small menu fits in by tuesday. Rent is no longer cheap, but the foot traffic is real every day, not just weekends.</p>
+        </div>
+        <div class="loc">
+          <span class="tag t-front">front runner</span>
+          <h4>Virgil Village · Virgil + Santa Monica</h4>
+          <div class="meta">young · spicy-food literate · already a corridor</div>
+          <p>The kitchens on this stretch already speak our language. A burger joint with serious salsa wouldn't be a translation — it'd be a sibling.</p>
+        </div>
+        <div class="loc">
+          <span class="tag t-watching">watching</span>
+          <h4>Frogtown · Blake Ave</h4>
+          <div class="meta">river-adjacent · slow build · creative weekday lunch crowd</div>
+          <p>Cheaper rent, a built-in lunch crowd from the studios and offices, and bikes on the river path. Lower ceiling, lower floor.</p>
+        </div>
+        <div class="loc">
+          <span class="tag t-watching">watching</span>
+          <h4>Echo Park · Sunset east of Alvarado</h4>
+          <div class="meta">night energy · tourist-meets-local · loud</div>
+          <p>Built-in dinner and after-show crowd. The trade is a louder room and louder rent. We'd need a real plan for late-night.</p>
+        </div>
+        <div class="loc">
+          <span class="tag t-watching">watching</span>
+          <h4>Mar Vista · Venice Blvd</h4>
+          <div class="meta">westside · families · sunday-market adjacent</div>
+          <p>Quieter, steadier. Less buzz, more repeat orders. The kind of place where you build a regulars list in a year.</p>
+        </div>
+        <div class="loc">
+          <span class="tag t-longshot">long shot</span>
+          <h4>Smorgasburg LA · ROW DTLA</h4>
+          <div class="meta">sundays only · proof-of-concept · brutal honesty</div>
+          <p>Not a home — a stress test. Three months of Sundays would tell us more about the menu than three months of focus groups.</p>
+        </div>
+      </div>
+      <p style="margin-top: 24px; font-size: 15px; color: var(--ink-soft);">
+        Know a block we should be walking? Know a landlord? Know someone who already does
+        the best salsa in their neighborhood and doesn't know it yet? <a href="mailto:hello@bobos.la" style="color: var(--tomato-deep);">tell us</a>.
+      </p>
+    </section>
+
+    <section>
+      <div class="sec-kicker">the build log</div>
+      <h2>Thinking, in public.</h2>
+      <p>
+        bobos doesn't exist yet. This is a running list of the decisions, dead ends, and
+        small wins on the way to opening day. New entries up top.
+      </p>
+      <div class="log">
+        <div class="entry">
+          <div class="date">jun 01 · 2026</div>
+          <div class="what"><span class="open">▸</span> this page goes live. v0.1. the menu is fake. the scouting board is real.</div>
+        </div>
+        <div class="entry">
+          <div class="date">may 28 · 2026</div>
+          <div class="what"><span class="tick">✓</span> name landed: <strong>bobos</strong>. small, easy to say, easy to mishear forgivingly.</div>
+        </div>
+        <div class="entry">
+          <div class="date">may 22 · 2026</div>
+          <div class="what"><span class="tick">✓</span> salsa roja test #4 — pulled the cumin back, doubled the char on the tomato. the one.</div>
+        </div>
+        <div class="entry">
+          <div class="date">may 14 · 2026</div>
+          <div class="what"><span class="open">▸</span> first walk: Highland Park, Virgil Village, Echo Park. notes in the scouting board above.</div>
+        </div>
+        <div class="entry">
+          <div class="date">may 02 · 2026</div>
+          <div class="what">the one-sentence pitch: <em>a burger joint where the salsa goes on the burger.</em></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-kicker">stay in the loop</div>
+      <h2>Get the opening day text.</h2>
+      <div class="form">
+        <h3>One message, one day — opening day.</h3>
+        <p>No newsletter, no "we're updating our menu!" emails. Just a single note when there's a door to walk through.</p>
+        <form class="field" onsubmit="event.preventDefault(); this.querySelector('button').textContent='noted ✓'; this.querySelector('button').disabled=true; this.querySelector('input').value='';">
+          <input type="email" required placeholder="you@somewhere.com" aria-label="email" />
+          <button type="submit">notify me</button>
+        </form>
+        <div class="fine">// capture endpoint pending — for now this just nods at you politely</div>
+      </div>
+    </section>
+
+    <footer>
+      <div>bobos · los angeles · ☎ tbd · ✉ hello@bobos.la</div>
+      <div>napkin v0.1 · last updated jun 1, 2026</div>
+    </footer>
+
+  </main>
+</body>
+</html>
