@@ -7,6 +7,36 @@
   <meta name="description" content="bobos is a burger joint coming to Los Angeles. We sell burgers, burgers with our salsa on them, and jars of the salsa at the front of the counter. This page is the napkin." />
   <meta property="og:title" content="bobos — burgers + salsa, LA, soon" />
   <meta property="og:description" content="A burger joint coming to LA. We sell burgers, burgers with salsa, and jars of the salsa. This page is the napkin." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bobos.makeacompany.ai" />
+  <link rel="canonical" href="https://bobos.makeacompany.ai" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-29N1GMQ3NE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-29N1GMQ3NE');
+
+    // Synthetic health event: one non-interaction ping per browser session.
+    try {
+      var gaHealthKey = 'ga_health_ping_sent';
+      if (!sessionStorage.getItem(gaHealthKey)) {
+        var gaDebug = window.location.search.indexOf('ga_debug=1') !== -1;
+        gtag('event', 'ga_health_ping', {
+          event_category: 'observability',
+          event_label: 'frontend_boot',
+          non_interaction: true,
+          debug_mode: gaDebug
+        });
+        sessionStorage.setItem(gaHealthKey, '1');
+      }
+    } catch (err) {
+      // Ignore storage restrictions in private/locked-down browser contexts.
+    }
+  </script>
+
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%94%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
